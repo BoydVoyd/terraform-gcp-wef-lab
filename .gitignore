@@ -33,3 +33,6 @@ auth/
 
 # Apple crap
 .DS_Store
+
+# Terraform Lock
+.terraform.lock.hcl
