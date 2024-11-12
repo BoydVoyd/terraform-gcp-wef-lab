@@ -21,7 +21,7 @@ resource "google_compute_instance" "vm_instance_public" {
   machine_type = var.windows_instance_type
   zone         = var.gcp_zone
   hostname     = "${var.app_name}-vm${random_id.instance_id.hex}.${var.app_domain}"
-  tags         = ["rdp","http"]
+  tags         = ["rdp","dc"]
 
   boot_disk {
     initialize_params {
