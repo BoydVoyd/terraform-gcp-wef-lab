@@ -8,7 +8,7 @@ environment = "dev" # Dev, Test, Prod, etc
 gcp_project   = "kopicloud-medium"
 gcp_region    = "europe-west4"
 gcp_zone      = "europe-west4-b"
-gcp_auth_file = "../auth/kopicloud-medium.json"
+gcp_auth_file = "./auth/svc_tf.json"
 
 # GCP Netwok
 network-subnet-cidr = "10.10.15.0/24"
