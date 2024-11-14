@@ -8,12 +8,12 @@ resource "random_id" "instance_id" {
 }
 
 # Bootstrapping Script
-data "template_file" "windows-metadata" {
-template = <<EOF
-# Install IIS
-Install-WindowsFeature -name Web-Server -IncludeManagementTools;
-EOF
-}
+# data "template_file" "windows-metadata" {
+# template = <<EOF
+# # Install IIS
+# Install-WindowsFeature -name Web-Server -IncludeManagementTools;
+# EOF
+# }
 
 # Create VM
 resource "google_compute_instance" "vm_instance_public" {
@@ -30,7 +30,7 @@ resource "google_compute_instance" "vm_instance_public" {
   }
 
   metadata = {
-    sysprep-specialize-script-ps1 = data.template_file.windows-metadata.rendered
+    sysprep-specialize-script-ps1 = file("sysprep-specialize.ps1")
   }
 
   network_interface {
