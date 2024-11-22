@@ -2,14 +2,38 @@
 ## GCP Windows VM - Output ##
 #############################
 
-output "vm-name" {
-  value = google_compute_instance.vm_instance_public.name
+output "dc-name" {
+  value = google_compute_instance.vm_instance_dc.name
 }
 
-output "vm-external-ip" {
-  value = google_compute_instance.vm_instance_public.network_interface.0.access_config.0.nat_ip
+output "dc-external-ip" {
+  value = google_compute_instance.vm_instance_dc.network_interface.0.access_config.0.nat_ip
 }
 
-output "vm-internal-ip" {
-  value = google_compute_instance.vm_instance_public.network_interface.0.network_ip
+output "dc-internal-ip" {
+  value = google_compute_instance.vm_instance_dc.network_interface.0.network_ip
+}
+
+output "wec-name" {
+  value = google_compute_instance.vm_instance_wec.name
+}
+
+output "wec-external-ip" {
+  value = google_compute_instance.vm_instance_wec.network_interface.0.access_config.0.nat_ip
+}
+
+output "wec-internal-ip" {
+  value = google_compute_instance.vm_instance_wec.network_interface.0.network_ip
+}
+
+output "test-name" {
+  value = google_compute_instance.vm_instance_test.name
+}
+
+output "test-external-ip" {
+  value = google_compute_instance.vm_instance_test.network_interface.0.access_config.0.nat_ip
+}
+
+output "test-internal-ip" {
+  value = google_compute_instance.vm_instance_test.network_interface.0.network_ip
 }

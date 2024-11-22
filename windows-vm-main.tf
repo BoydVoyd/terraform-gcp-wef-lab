@@ -16,7 +16,7 @@ resource "random_id" "instance_id" {
 # }
 
 # Create Domain Controller VM
-resource "google_compute_instance" "vm_instance_public" {
+resource "google_compute_instance" "vm_instance_dc" {
   # name         = "${lower(var.company)}-${lower(var.app_name)}-${var.environment}-vm${random_id.instance_id.hex}"
   name = "lab-dc"
   machine_type = var.windows_instance_type
@@ -81,7 +81,7 @@ resource "google_compute_instance" "vm_instance_test" {
   zone         = var.gcp_zone
   hostname     = "lab-test.${var.app_domain}"
   tags         = ["rdp","dc"]
-
+  desired_status = "TERMINATED" # Options: TERRMINATED, RUNNING
   boot_disk {
     initialize_params {
       image = var.windows_2016_sku
